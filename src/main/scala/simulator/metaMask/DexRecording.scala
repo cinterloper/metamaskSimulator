@@ -43,14 +43,14 @@ class DexRecording extends Simulation {
 			.resources(http("request_1")
 			.post("/ext/bc/C/rpc")
 			.headers(headers_1)
-			.body(RawFileBody("dexrecording/0001_eth_blockNumber.json")),
+			.body(RawFileBody("dexrecording/0001_eth_blockNumber.json")), //Returns the block number of the most recent block
             http("request_2")
 			.options("/ext/bc/C/rpc")
 			.headers(headers_0),
             http("request_3")
 			.post("/ext/bc/C/rpc")
 			.headers(headers_1)
-			.body(RawFileBody("dexrecording/0003_eth_chainId.json")),
+			.body(RawFileBody("dexrecording/0003_eth_chainId.json")), //Returns hex id of chain at this endpoint
             http("request_4")
 			.options("/ext/bc/C/rpc")
 			.headers(headers_4),
@@ -61,11 +61,11 @@ class DexRecording extends Simulation {
             http("request_6")
 			.post("/ext/bc/C/rpc")
 			.headers(headers_5)
-			.body(RawFileBody("dexrecording/0006_eth_getBlockByNumber.json")),
+			.body(RawFileBody("dexrecording/0006_eth_getBlockByNumber.json")), //retrieve block
             http("request_7")
 			.post("/ext/bc/C/rpc")
 			.headers(headers_5)
-			.body(RawFileBody("dexrecording/0007_eth_getBalance.json"))))
+			.body(RawFileBody("dexrecording/0007_eth_getBalance.json")))) //gets balance of account, args : address, block
 		.pause(2)
 		.exec(http("request_8")
 			.post("/ext/bc/C/rpc")
@@ -86,6 +86,8 @@ class DexRecording extends Simulation {
             http("request_12")
 			.post("/ext/bc/C/rpc")
 			.headers(headers_5)
+							// Returns an array of all logs matching a given filter object.
+							// args: fromBlock toBlock address topics (blockhash)
 			.body(RawFileBody("dexrecording/0012_eth_getLogs.json")),
             http("request_13")
 			.post("/ext/bc/C/rpc")
@@ -146,6 +148,9 @@ class DexRecording extends Simulation {
 			.resources(http("request_27")
 			.post("/ext/bc/C/rpc")
 			.headers(headers_5)
+				//Executes a new message call immediately without creating a transaction on the block chain.
+				//send a transaction
+				//args: from to gas gasPrice value data
 			.body(RawFileBody("dexrecording/0027_eth_call.json")),
             http("request_28")
 			.options("/ext/bc/C/rpc")
@@ -229,10 +234,13 @@ class DexRecording extends Simulation {
             http("request_49")
 			.post("/ext/bc/C/rpc")
 			.headers(headers_5)
+							//Returns code at a given address.
+							// args: addr, blockno
 			.body(RawFileBody("dexrecording/0049_eth_getCode.json")),
             http("request_50")
 			.post("/ext/bc/C/rpc")
 			.headers(headers_5)
+							//Returns the number of transactions sent from an address.
 			.body(RawFileBody("dexrecording/0050_eth_getTransactionCount.json"))))
 		.pause(1)
 		.exec(http("request_51")
@@ -244,6 +252,7 @@ class DexRecording extends Simulation {
             http("request_53")
 			.post("/ext/bc/C/rpc")
 			.headers(headers_5)
+							//Creates new message call transaction or a contract creation for signed transactions.
 			.body(RawFileBody("dexrecording/0053_eth_sendRawTransaction.json")),
             http("request_54")
 			.post("/ext/bc/C/rpc")
@@ -256,6 +265,7 @@ class DexRecording extends Simulation {
             http("request_56")
 			.post("/ext/bc/C/rpc")
 			.headers(headers_5)
+							//Returns the receipt of a transaction by transaction hash.
 			.body(RawFileBody("dexrecording/0056_eth_getTransactionReceipt.json"))))
 		.pause(3)
 		.exec(http("request_57")

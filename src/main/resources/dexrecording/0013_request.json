@@ -1,1 +1,15 @@
-{"id":3031235686,"jsonrpc":"2.0","method":"eth_getLogs","params":[{"fromBlock":"0xd88f","toBlock":"0xd88f","address":"0x956e6d233465a843f7d2f19688e05716ebeefc91","topics":["0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef"]}]}
+{
+  "id": 3031235686,
+  "jsonrpc": "2.0",
+  "method": "eth_getLogs",
+  "params": [
+    {
+      "fromBlock": "0xd88f",
+      "toBlock": "0xd88f",
+      "address": "0x956e6d233465a843f7d2f19688e05716ebeefc91",
+      "topics": [
+        "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef"
+      ]
+    }
+  ]
+}
