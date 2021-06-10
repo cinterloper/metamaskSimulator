@@ -9,10 +9,10 @@ import java.io.File
 import java.nio.file.{Files, Paths}
 
 object Utils {
-  val test_account = "0xf7fB643EdBDE6c6a045ec7f26CA143F778C4fA1f"
-  val endpoint = "http://localhost:9650/ext/bc/C/rpc"
+  val endpoint = "http://localhost:9650"
+  val chainrpcpath = "ext/bc/C/rpc"
   val chainid = "0xa868"
-  val web3 = Web3j.build(new HttpService(endpoint))
+  val web3 = Web3j.build(new HttpService(s"${endpoint}/${chainrpcpath}"))
   val web3ClientVersion = web3.web3ClientVersion.send
   val clientVersion = web3ClientVersion.getWeb3ClientVersion
   val credentials: Credentials = loadWallet(createWallet)

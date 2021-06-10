@@ -34,7 +34,6 @@ class DexRecording extends Simulation {
 
 	val headers_103 = Map("Content-Type" -> "application/ocsp-request")
 
-    val uri1 = "http://r3.o.lencr.org"
 
 	val scn = scenario("DexRecording")
 		.exec(http("request_0")
@@ -450,13 +449,7 @@ class DexRecording extends Simulation {
             http("request_102")
 			.post("/ext/bc/C/rpc")
 			.headers(headers_5)
-			.body(RawFileBody("dexrecording/0102_eth_blockNumber.json")),
-            http("request_103")
-			.post(uri1 + "/")
-			.headers(headers_103)
-			.body(RawFileBody("dexrecording/0103_request.dat")),
-            http("request_104")
-			.post(uri1 + "/")
+			.body(RawFileBody("dexrecording/0102_eth_blockNumber.json"))
 			.headers(headers_103)
 			.body(RawFileBody("dexrecording/0104_request.dat"))))
 		.pause(1)
