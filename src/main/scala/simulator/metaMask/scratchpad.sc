@@ -1,7 +1,7 @@
 import org.web3j.crypto.{Credentials, WalletUtils}
 import org.web3j.protocol.Web3j
 import org.web3j.protocol.http.HttpService
-import simulator.metaMask.Utils.endpoint
+import simulator.metaMask.BenchmarkCommon.endpoint
 import org.web3j.crypto.Bip39Wallet
 import org.web3j.crypto.WalletUtils
 import java.nio.file.Files
